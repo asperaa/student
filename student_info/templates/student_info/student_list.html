@@ -1,0 +1,51 @@
+{% extends 'student_info/base.html' %}
+
+{% block content %}
+
+<div>
+
+<!-- Grey with black text -->
+
+<nav class="navbar navbar-custom navbar-expand-sm bg-dark navbar-dark" >
+
+    <ul class="navbar-nav ">
+    <li class=" btn btn-outline-dark nav nav-tabs btn-sm nav-item active ">
+      <a class="nav-link" href="{% url 'add_student' %}">Add_New_Student</a>
+    </li>
+    <li class="btn btn-outline-dark btn-sm nav nav-tabs nav-item active">
+      <a class="nav-link" href="/">Student_List</a>
+    </li>
+
+  </ul>
+</nav>
+</div>
+
+
+<div class="page-header">
+
+
+<div class="container">
+  <h2>Student Table</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for student in students %}
+      <tr>
+        <td>{{student.name}}</td>
+        <td>{{student.age}}</td>
+        <td>{{student.gender}}</td>
+      </tr>
+    {% endfor %}
+
+    </tbody>
+  </table>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'student_info/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div>
+
+<!-- Grey with black text -->
+
+<nav class="navbar navbar-custom navbar-expand-sm bg-dark navbar-dark" >
+
+    <ul class="navbar-nav ">
+    <li class="btn btn-outline-dark btn-sm nav nav-tabs nav-item active ">
+      <a class="nav-link" href="{% url 'add_student' %}">Add_New_Student</a>
+    </li>
+    <li class="btn btn-outline-dark btn-sm nav nav-tabs nav-item active">
+      <a class="nav-link" href="/">Student_List</a>
+    </li>
+
+  </ul>
+</nav>
+</div>
+
+
+
+<div class="page-form">
+<form method ="POST" action="{% url 'add_student' %}">{%csrf_token%}
+ <div class="form-group col">
+      <div class="col-6">
+        {{ form.name|as_crispy_field }}
+      </div>
+      <div class="col-2">
+        {{ form.age|as_crispy_field }}
+      </div>
+    <div class="col-1">
+        {{ form.gender|as_crispy_field }}
+    </div>
+
+     <div class="col-2">
+     <button type="submit" class="btn btn-primary">Add_Student</button>
+     </div>
+ </div>
+</div>
+</form>
+{% endblock %}
